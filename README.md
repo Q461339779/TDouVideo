@@ -1,0 +1,2 @@
+# TDouVideo
+opengl，openCV，FFMpeg
