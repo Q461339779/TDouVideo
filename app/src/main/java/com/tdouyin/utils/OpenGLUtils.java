@@ -1,4 +1,4 @@
-package com.tdouyin.filter;
+package com.tdouyin.utils;
 
 import android.content.Context;
 import android.opengl.GLES20;
