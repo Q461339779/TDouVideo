@@ -43,6 +43,7 @@ public class BaseFilter {
         vTexture = GLES20.glGetUniformLocation(program, "vTexture");
     }
 
+    //初始化坐标数据
     public void initCoord(){
         vertexBuffer.clear();
         vertexBuffer.put(OpenGLUtils.VERTEX);

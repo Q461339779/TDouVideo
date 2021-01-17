@@ -7,8 +7,9 @@ import com.tdouyin.utils.OpenGLUtils;
 
 
 public class BaseFboFilter extends BaseFilter {
-
+    //fbo 数组
     int[] frameBuffer;
+    //纹理数组
     int[] frameTextures;
 
     public BaseFboFilter(Context context, int vertexShaderId, int fragmentShaderId) {
@@ -26,13 +27,28 @@ public class BaseFboFilter extends BaseFilter {
          */
         frameBuffer = new int[1];
         frameTextures = new int[1];
+        //创建 fbo parms  fbo的个数
         GLES20.glGenFramebuffers(1, frameBuffer, 0);
+        //配置纹理
         OpenGLUtils.glGenTextures(frameTextures);
 
         /**
          * 2、fbo与纹理关联
          */
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, frameTextures[0]);
+        /**
+         * 配置纹理的属性
+         * GLES20.GL_TEXTURE_2D,
+         * 0,
+         * GLES20.GL_RGBA,
+         * width,
+         * height,
+         * 0,
+         * GLES20.GL_RGBA, 纹理属性 数据格式
+         * GLES20.GL_UNSIGNED_BYTE, 数据类型
+         * null  数据
+         *
+         */
         GLES20.glTexImage2D(GLES20.GL_TEXTURE_2D, 0, GLES20.GL_RGBA, width, height, 0, GLES20.GL_RGBA, GLES20.GL_UNSIGNED_BYTE,
                 null);
         //纹理关联 fbo
@@ -51,9 +67,9 @@ public class BaseFboFilter extends BaseFilter {
 
     @Override
     public int onDraw(int texture) {
-        GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, frameBuffer[0]); //綁定fbo
+        GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, frameBuffer[0]); //綁定fbo  向fbo画画
         super.onDraw(texture);
-        GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);  //
+        GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);  //解绑
         return frameTextures[0];
     }
 

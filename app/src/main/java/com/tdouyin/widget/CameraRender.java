@@ -92,6 +92,7 @@ public class CameraRender implements GLSurfaceView.Renderer,Preview.OnPreviewOut
         mCameraTexure.getTransformMatrix(mtx);
 
         cameraFilter.setTransformMatrix(mtx);
+        //摄像头的纹理画到fbo上边 返回的是fbo的纹理id
         int id = cameraFilter.onDraw(textures[0]);
         //id = timeFilter.onDraw(id);
         id = screenFilter.onDraw(id);

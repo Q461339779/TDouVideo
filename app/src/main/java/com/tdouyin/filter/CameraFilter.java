@@ -5,7 +5,7 @@ import android.opengl.GLES20;
 
 import com.tdouyin.R;
 
-
+//将摄像头数据画到 fbo中
 public class CameraFilter extends BaseFboFilter {
 
     private float[] mtx;

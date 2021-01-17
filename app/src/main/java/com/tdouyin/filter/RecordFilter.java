@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.tdouyin.R;
 
-
+//绘制数据到EGLSurface
 public class RecordFilter extends BaseFilter {
 
     public RecordFilter(Context context) {

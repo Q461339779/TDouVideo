@@ -11,7 +11,9 @@ import android.view.Surface;
 
 import com.tdouyin.filter.RecordFilter;
 
-
+/**
+ * EGL环境搭建
+ */
 public class BaseEGL {
 
     private final EGLConfig mEglConfig;
